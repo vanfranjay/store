@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { tap } from 'rxjs';
+import { Product } from './interfaces/product.interface';
+import { ProductsService } from './services/products.service';
 
 @Component({
   selector: 'app-products',
@@ -7,4 +10,17 @@ import { Component } from '@angular/core';
 })
 export class ProductsComponent {
 
+  products!: Product[];
+  constructor(
+    private productSvc: ProductsService
+  ) { }
+
+  ngOnInit(): void {
+    this.productSvc.getProducts()
+      .pipe(
+        // tap(res => console.log(res))
+        tap((products: Product[]) => this.products = products )
+      )
+      .subscribe();
+  }
 }

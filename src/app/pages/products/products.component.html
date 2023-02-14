@@ -1,1 +1,76 @@
-<p>products works!</p>
+<!-- <section class="products flex flex-wrap justify-center items-center mt-20">
+  <mat-card class="card m-2 max-w-400 min-h-180 min-w-400 flex-grow" *ngFor="let product of products">
+    <mat-card-header>
+      {{product.name}}
+    </mat-card-header>
+    <mat-card-content>
+      {{product.description}}
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" class="w-full">
+        buy {{product.price | currency }}
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</section> -->
+
+<!-- <section class="products flex flex-wrap justify-center items-center mt-20">
+  <mat-card class="card m-2 max-w-400 min-h-180 min-w-400 flex-grow" *ngFor="let product of products">
+    <mat-card-header>
+      {{product.name}}
+    </mat-card-header>
+    <mat-card-content>
+      {{product.description}}
+    </mat-card-content>
+    <div class="flex flex-col mt-auto">
+      <mat-card-actions>
+        <button mat-raised-button color="primary" class="w-full">
+          buy {{product.price | currency }}
+          <mat-icon>add_shopping_cart</mat-icon>
+        </button>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+  
+</section> -->
+
+<section class="products flex flex-wrap justify-center items-center mt-20">
+  <mat-card class="card m-2 max-w-400 min-h-180 flex-grow h-56 overflow-y-auto" *ngFor="let product of products">
+    <mat-card-header>
+      {{product.name}}
+    </mat-card-header>
+    <mat-card-content>
+      {{product.description}}
+    </mat-card-content>
+    <div class="flex flex-col mt-auto">
+      <mat-card-actions>
+        <button mat-raised-button color="primary" class="w-full">
+          buy {{product.price | currency }}
+          <mat-icon>add_shopping_cart</mat-icon>
+        </button>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+  
+</section>
+
+
+<!-- <section class="products flex flex-wrap justify-center items-center mt-20">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full">
+    <mat-card class="card m-2 max-w-400 min-h-180 min-w-400 flex-grow" *ngFor="let product of products">
+      <mat-card-header>
+        {{product.name}}
+      </mat-card-header>
+      <mat-card-content class="flex-grow">
+        {{product.description}}
+      </mat-card-content>
+      <mat-card-actions class="h-20 flex items-end">
+        <button mat-raised-button color="primary" class="w-full">
+          buy {{product.price | currency }}
+          <mat-icon>add_shopping_cart</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</section> -->
