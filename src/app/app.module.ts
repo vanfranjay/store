@@ -10,7 +10,6 @@ import { MiDominioComponent } from './pages/mi-dominio/mi-dominio.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
 import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
@@ -28,7 +27,7 @@ import { CartComponent } from './components/cart/cart.component';
     MaterialModule,
     HttpClientModule,
     MatButtonModule,
-    MatIconModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
