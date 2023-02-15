@@ -1,4 +1,4 @@
-<mat-card class="card m-2 max-w-400 min-h-180 flex-grow h-56 overflow-y-auto">
+<mat-card class="flex flex-col card m-2 max-w-400 min-h-180 flex-grow h-56 overflow-y-auto">
   <mat-card-header>
     <mat-card-title>
       {{ product.name }}
@@ -8,16 +8,16 @@
     {{ product.description }}
   </mat-card-content>
   <div class="flex flex-col mt-auto">
-    <mat-card-actions>
+    <mat-card-actions class="mt-auto">
       <button
-        mat-raised-button
-        
-        class="w-full hover:text-black hover:bg-lime-300 bg-lime-800 text-white"
+      mat-raised-button
+      color="primary"
+        class="w-full bg-lime-800 text-white hover:text-black hover:bg-lime-300"
         (click)="onClick()"
       >
         buy {{ product.price | currency }}
         <mat-icon>add_shopping_cart</mat-icon>
-      </button>
+    </button>
     </mat-card-actions>
   </div>
 </mat-card>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { tap } from 'rxjs';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { Product } from './interfaces/product.interface';
 import { ProductsService } from './services/products.service';
 
@@ -12,7 +13,8 @@ export class ProductsComponent {
 
   products!: Product[];
   constructor(
-    private productSvc: ProductsService
+    private productSvc: ProductsService,
+    private shoppingCartSvc: ShoppingCartService
   ) { }
 
   ngOnInit(): void {
@@ -25,6 +27,7 @@ export class ProductsComponent {
   }
 
   addToCart(product: Product): void {
-    console.log('add ti cart', product)
+    console.log('add ti cart', product);
+    this.shoppingCartSvc.updateCart(product);
   }
 }
