@@ -23,4 +23,8 @@ export class ProductsComponent {
       )
       .subscribe();
   }
+
+  addToCart(product: Product): void {
+    console.log('add ti cart', product)
+  }
 }

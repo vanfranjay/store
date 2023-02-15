@@ -36,10 +36,12 @@
 </section> -->
 
 <section class="products flex flex-wrap justify-center items-center mt-20">
-  <app-product [product]="product" *ngFor="let product of products"></app-product>
-  
+  <app-product
+    (addToCartClick)="addToCart($event)"
+    [product]="product"
+    *ngFor="let product of products"
+  ></app-product>
 </section>
-
 
 <!-- <section class="products flex flex-wrap justify-center items-center mt-20">
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full">
