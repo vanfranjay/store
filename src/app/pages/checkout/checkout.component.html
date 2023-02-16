@@ -1,5 +1,9 @@
 <div class="flex items-center px-2 py-5 pt-14">
-  <form action="" class="flex-auto w-full" (ngSubmit)="onSubmit()" #checkoutForm="ngForm">
+  <form
+    action=""
+    class="flex-auto w-full"
+    #checkoutForm="ngForm"
+  >
     <mat-form-field class="pt-5 pr-0 pb-24 pl-2 w-full mb-2">
       <input
         matInput
@@ -13,46 +17,62 @@
         Name is required
       </mat-error>
     </mat-form-field>
+    {{ isDelivery }} - isDelivery?
     <mat-radio-group class="pt-5 pr-0 pb-24 pl-2 w-full mb-2">
       <p>Choose an option:</p>
-      <mat-radio-button value="pickup" (change)="onPickupOrDelivery(false)">
+      <mat-radio-button
+        value="pickup"
+        (change)="onPickupOrDelivery(false)"
+      >
         Pickup
       </mat-radio-button>
-      <mat-radio-button value="delivery" (change)="onPickupOrDelivery(true)">
+      <mat-radio-button value="delivery" (change)="onPickupOrDelivery(true)" checked>
         Delivery
       </mat-radio-button>
     </mat-radio-group>
-    <mat-form-field class="pt-5 pr-0 pb-24 pl-2 w-full mb-2">
-      <input
-        matInput
-        placeholder="Shipping Address"
-        [(ngModel)]="model.shippingAddress"
-        name="ShippingAddress"
-        #shippingAddress="ngModel"
-      >
-    </mat-form-field>
-    <mat-form-field class="pt-5 pr-0 pb-24 pl-2 w-full mb-2">
-      <input
-        matInput
-        placeholder="City"
-        [(ngModel)]="model.city"
-        name="city"
-        #city="ngModel"
-      >
-    </mat-form-field>
-    <mat-form-field class="pt-5 pr-0 pb-24 pl-2 w-full mb-2">
-      <mat-label>Select me</mat-label>
-      <mat-select name="store" #store="ngModel" [(ngModel)]="model.store">
-        <mat-option [value]="tienda" *ngFor="let tienda of stores">
-          {{tienda.name}} - {{tienda.openingHours}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <ng-container *ngIf="isDelivery; else showStores">
+      <mat-form-field class="pt-5 pr-0 pb-24 pl-2 w-full mb-2">
+        <input
+          matInput
+          placeholder="Shipping Address"
+          [(ngModel)]="model.shippingAddress"
+          name="ShippingAddress"
+          #shippingAddress="ngModel"
+        />
+      </mat-form-field>
+      <mat-form-field class="pt-5 pr-0 pb-24 pl-2 w-full mb-2">
+        <input
+          matInput
+          placeholder="City"
+          [(ngModel)]="model.city"
+          name="city"
+          #city="ngModel"
+        />
+      </mat-form-field>
+    </ng-container>
+    <ng-template #showStores>
+      <mat-form-field class="pt-5 pr-0 pb-24 pl-2 w-full mb-2">
+        <mat-label>Select me</mat-label>
+        <mat-select name="store" #store="ngModel" [(ngModel)]="model.store">
+          <mat-option [value]="tienda" *ngFor="let tienda of stores">
+            {{ tienda.name }} - {{ tienda.openingHours }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </ng-template>
+    
   </form>
 </div>
 <app-details></app-details>
 <div class="mx-auto block w-2/5 mt-16 pb-10">
-  <button [disabled]="!checkoutForm.form.valid" mat-raised-button color="primary" class="w-full">
+  <button
+    [disabled]="!checkoutForm.form.valid"
+    mat-raised-button
+    color="primary"
+    class="w-full"
+    type="submit"
+    (click)="onSubmit(checkoutForm)"
+  >
     checkout
   </button>
 </div>

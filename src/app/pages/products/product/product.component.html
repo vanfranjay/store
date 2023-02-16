@@ -14,6 +14,7 @@
       color="primary"
         class="w-full bg-lime-800 text-white hover:text-black hover:bg-lime-300"
         (click)="onClick()"
+        [disabled]="product.stock === 0"
       >
         buy {{ product.price | currency }}
         <mat-icon>add_shopping_cart</mat-icon>
