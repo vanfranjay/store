@@ -7,11 +7,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MaterialModule } from 'src/app/material.module';
 import { FormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
+import { DetailsComponent } from './details/details.component';
 
 
 @NgModule({
   declarations: [
-    CheckoutComponent
+    CheckoutComponent,
+    DetailsComponent
   ],
   imports: [
     CommonModule,

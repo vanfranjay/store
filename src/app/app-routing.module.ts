@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MiDominioComponent } from './pages/mi-dominio/mi-dominio.component';
 
 const routes: Routes = [
+  {path: "", redirectTo: '/products', pathMatch: 'full'},
   {path: "miDominio", component: MiDominioComponent, title: "mi-dominio"},
   { path: 'products', loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule) },
   { path: 'checkout', loadChildren: () => import('./pages/checkout/checkout.module').then(m => m.CheckoutModule) },
